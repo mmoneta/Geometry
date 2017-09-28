@@ -1,0 +1,62 @@
+body {
+	margin: 0;
+	overflow: hidden;
+	background-color: black;
+}
+
+input[type=range] {
+	-webkit-appearance: none;
+}
+
+input[type=range]::-webkit-slider-runnable-track {
+	width: 100%;
+	background: #ddd;
+	border: none;
+	border-radius: 3px;
+}
+
+input[type=range]::-webkit-slider-thumb {
+	-webkit-appearance: none;
+	border: none;
+	height: 20px;
+	width: 20px;
+	border-radius: 50%;
+	background: goldenrod;
+}
+
+input[type=range]:focus {
+	outline: none;
+}
+
+input[type=range]:focus::-webkit-slider-runnable-track {
+	background: #ccc;
+}
+
+select {
+	width: 100%;
+	margin: 10px;
+	display: block;
+	padding: 5px;
+}
+
+#content {
+	text-align: center;
+}
+
+#content p {
+	font-weight: bold;
+	margin: 15px 0px 5px 0px;
+}
+
+.headers {
+	color: white;
+}
+
+.colors {
+	display: block;
+	margin: 0 auto;
+	min-width: 30px; 
+	min-height: 30px; 
+	max-height: 50px;
+	max-width: 50px;
+}
