@@ -34,9 +34,18 @@ input[type=range]:focus::-webkit-slider-runnable-track {
 
 select {
 	width: 100%;
-	margin: 10px;
+	margin: 10px 0px;
 	display: block;
-	padding: 5px;
+	border: 0;
+   	color: white;
+   	background: transparent;
+   	font-weight: bold;
+    -webkit-appearance: none;
+    text-align-last:center;
+}
+
+option {
+	color: black;
 }
 
 #content {
