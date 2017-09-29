@@ -1,4 +1,4 @@
-﻿<!DOCTYPE html>
+<!DOCTYPE html>
 <html>
 <head>
     <title>Bryły</title>
@@ -14,38 +14,38 @@
 			var renderer;
 			
             function load(background, geometry) {
-                var scene = new THREE.Scene();  //scena
+            	// Scene
+                var scene = new THREE.Scene();
+                // Perspective Camera
                 var camera = new THREE.PerspectiveCamera(
-                    cameraFov.value, // kąt patrzenia kamery (FOV - field of view)
-                    screen.width / screen.height,      // proporcje widoku
-                    0.1,             // min renderowana odległość
-                    10000            // max renderowana odległość
+                    cameraFov.value, 					// angle of view of the camera (FOV - field of view)
+                    screen.width / screen.height,      	// view proportions
+                    0.1,             					// min rendered distance
+                    10000            					// max rendered distance
                 );
                 renderer = new THREE.WebGLRenderer();
-                renderer.setClearColor(background);     // kolor tła - prefix 0x, a nie #
+                renderer.setClearColor(background);     // background color - prefix 0x
                 var width = document.getElementById("field").offsetWidth;
                 var height = window.innerHeight;
-                renderer.setSize(width, height);           // ustalenie rozmiarów renderowanego okna w px (szer, wys)
+                renderer.setSize(width, height); 		// determining the size of the rendered window in px
 				var material = new THREE.MeshBasicMaterial({
 					color: 0x0000ff, side: THREE.DoubleSide, wireframe: true
 				});
-                var mesh = new THREE.Mesh(geometry, material);  // mesh - obiekt wyświetlany na scenie   
-                scene.add(mesh);    // dodanie mesha do sceny          
-                document.getElementById("field").appendChild(renderer.domElement);  // dodanie renderera do diva
-                // Pozycja kamery
+                var mesh = new THREE.Mesh(geometry, material);  	// mesh - object displayed on stage   
+                scene.add(mesh);    								// adding a mesh to the scene         
+                document.getElementById("field").appendChild(renderer.domElement);	// adding a renderer to a div
+                // Camera position
                 camera.position.x = -200;
                 camera.position.y = 200;
                 camera.position.z = 200;
-                camera.lookAt(mesh.position);   // nakierowanie kamery na punkt (0,0,0) w przestrzeni
-                //kluczowy element - animacja
+                camera.lookAt(mesh.position);   // pointing the camera to the point (0,0,0) in space
+                // Animation
                 function animateScene() {
-                    mesh.rotation.y += (rotation.value / 1000);   // zmieniająca się wartość, czyli rotacja obiektu
-                    requestAnimationFrame(animateScene);                // ciągłe renderowanie / wyświetlanie widoku sceny nasza kamerą
+                    mesh.rotation.y += (rotation.value / 1000);   	// changing value (object rotation)
+                    requestAnimationFrame(animateScene);          	// continuous rendering / viewing of the scene view of our camera
                     renderer.render(scene, camera);
-                    // zmiana skali obiektu
-                    mesh.scale.set(scale.value, scale.value, scale.value);
-                    // zmiana kąta widzenia kamery
-                    camera.fov = cameraFov.value;
+                    mesh.scale.set(scale.value, scale.value, scale.value);	// change the scale of the object
+                    camera.fov = cameraFov.value;							// change the angle of view of the camera
                     camera.updateProjectionMatrix();
                 }
                 animateScene();
@@ -139,14 +139,14 @@
 	<div class="container">
 		<div id="field" class="grid-10 grid-tl-10 grid-m-12"></div>
 		<div id="content" class="grid-2 grid-tl-2 grid-m-12">
-			<!--Sliders-->
+			<!-- Sliders -->
 			<p class="headers">CAMERA FOV</p>
 			<input type="range" name="cameraFov" id="cameraFov" min="5" max="100" value="45" />
 			<p class="headers">SCALE</p>
 			<input type="range" name="scale" id="scale" min="5" max="100" value="15" />
 			<p class="headers">ROTATION</p>
 			<input type="range" name="rotation" id="rotation" min="0" max="60" value="15" />       
-			<!--Select geometric body-->
+			<!-- Select geometric body -->
 			<p class="headers">OBJECT</p>
 			<select id="options">
 				<option value="CubeGeometry">CubeGeometry</option>
@@ -162,13 +162,13 @@
 				<option value="TetrahedronGeometry">TetrahedronGeometry</option>
 				<option value="TorusGeometry">TorusGeometry</option>
 			</select>
-			<!--Background color-->
+			<!-- Background color -->
 			<p class="headers">COLORS</p>
 			<div class="container">
-				<div class="grid-6">
+				<div class="grid-6 grid-m-12">
 					<div id="firstColor" class="colors" style="background-color: black; border: 1px solid white;"></div>
 				</div>
-				<div class="grid-6">
+				<div class="grid-6 grid-m-12">
 					<div id="secondColor" class="colors" style="background-color: white; border: 1px solid black;"></div>
 				</div>
 			</div>
