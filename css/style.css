@@ -40,8 +40,8 @@ select {
    	color: white;
    	background: transparent;
    	font-weight: bold;
-    -webkit-appearance: none;
-    text-align-last:center;
+    	-webkit-appearance: none;
+    	text-align-last: center;
 }
 
 option {
