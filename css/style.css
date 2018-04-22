@@ -38,11 +38,11 @@ select {
   padding: 5px 0px;
   display: block;
   border: 0;
-     color: white;
-     background: transparent;
-     font-weight: bold;
-    -webkit-appearance: none;
-    text-align-last: center;
+  color: white;
+  background: transparent;
+  font-weight: bold;
+  -webkit-appearance: none;
+  text-align-last: center;
 }
 
 option {
